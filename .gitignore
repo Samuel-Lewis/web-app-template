@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,yarn,react,linux,macos,windows,web
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn,linux,macos,windows
+# Created by https://www.toptal.com/developers/gitignore/api/linux,macos,windows,node,yarn
+# Edit at https://www.toptal.com/developers/gitignore?templates=linux,macos,windows,node,yarn
 
 ### Linux ###
 *~
@@ -167,6 +167,16 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+### Node Patch ###
+# Serverless Webpack directories
+.webpack/
+
+# Optional stylelint cache
+.stylelintcache
+
+# SvelteKit build / generate output
+.svelte-kit
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -210,4 +220,4 @@ yarn.lock
 # and uncomment the following lines
 # .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/node,yarn,react,linux,macos,windows,web
+# End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,node,yarn
