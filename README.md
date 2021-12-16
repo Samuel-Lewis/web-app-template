@@ -1,14 +1,6 @@
 # Deployment
 
-Deployment is down automatically on merges to master. Make sure to generate a **ssh key** for the GitHub action using:
+Deployment is done automatically on merges to master. Before first deployment
 
-- Generate keys with
-
-```
-ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
-```
-
-- Add the **public key** (`./gh-pages.pub`) to Settings -> Deploy Keys section and Enable Write Access
-- Add the **private key** (`./gh-pages`) as `ACTIONS_DEPLOY_KEY ` to Settings -> Secret Keys
-
-See [Deploy React App using GitHub actions](https://dev.to/achukka/deploy-react-app-using-github-actions-157d) for more details.
+- Create branch named `gh-pages`
+- Ensure repo's github pages branch is pointing to the newly created `gh-pages`
