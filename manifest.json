@@ -1,6 +1,6 @@
 {
-  "short_name": "TODO: short_name",
-  "name": "TODO: long_name",
+  "short_name": "web-app-template",
+  "name": "web-app-template",
   "icons": [],
   "start_url": ".",
   "display": "standalone",
