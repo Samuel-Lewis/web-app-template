@@ -15,9 +15,7 @@ import {
 } from "./pages";
 
 try {
-  console.log(process.env.REACT_APP_GA_ID);
   ReactGA.initialize(process.env.REACT_APP_GA_ID || "");
-  console.log("GA initialized");
 } catch (err) {
   console.error("GA initialization failed", err);
 }
