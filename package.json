@@ -1,8 +1,8 @@
 {
-  "name": "todo-package-name",
+  "name": "web-app-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://samuel-lewis.com/todo-package-name",
+  "homepage": "https://samuel-lewis.com/web-app-template",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.17.3",
