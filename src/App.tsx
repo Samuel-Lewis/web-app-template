@@ -1,19 +1,20 @@
 import "./App.less";
 import {
-  Layout,
-  Menu,
-  Typography
+    Layout,
+    Menu,
+    Typography
 } from "antd";
 import React from "react";
 import {
-  Link,
-  Outlet
+    Link,
+    Outlet
 } from "react-router-dom";
+import { withLocation } from "./analytics";
 
 const { Header, Content, Footer } = Layout;
 const { Link: L } = Typography;
 
-function App() {
+const App: React.FC = () => {
   return (
     <Layout className="app">
       <Header>
@@ -42,6 +43,6 @@ function App() {
       </Footer>
     </Layout>
   );
-}
+};
 
-export default App;
+export default withLocation(App);

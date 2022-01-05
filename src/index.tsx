@@ -1,24 +1,20 @@
 import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactGA from "react-ga4";
 import {
-  HashRouter,
-  Route,
-  Routes
+    HashRouter,
+    Route,
+    Routes
 } from "react-router-dom";
+import { initAnalytics } from "./analytics";
 import App from "./App";
 import {
-  AboutPage,
-  HomePage,
-  NotFoundPage
+    AboutPage,
+    HomePage,
+    NotFoundPage
 } from "./pages";
 
-try {
-  ReactGA.initialize(process.env.REACT_APP_GA_ID || "");
-} catch (err) {
-  console.error("GA initialization failed", err);
-}
+initAnalytics();
 
 ReactDOM.render(
   <React.StrictMode>
