@@ -7,7 +7,7 @@ export const withLocation = (WrappedComponent: React.FunctionComponent) => {
     const location = useLocation();
 
     useEffect(() => {
-      ReactGA.send({ hitType: "pageview", page: location.pathname });
+      ReactGA.send({ hitType: "pageview", path: location.pathname });
     }, [location]);
 
     return <WrappedComponent {...props} />;
