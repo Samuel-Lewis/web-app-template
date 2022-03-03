@@ -1,17 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {
-    HashRouter,
-    Route,
-    Routes
-} from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { initAnalytics } from "./analytics";
 import App from "./App";
-import {
-    AboutPage,
-    HomePage,
-    NotFoundPage
-} from "./pages";
+import { AboutPage, ErrorPage, HomePage } from "./pages";
 
 initAnalytics();
 
@@ -22,7 +14,7 @@ ReactDOM.render(
         <Route path="/" element={<App />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </HashRouter>

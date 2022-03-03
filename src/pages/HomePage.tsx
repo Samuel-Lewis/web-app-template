@@ -1,5 +1,7 @@
 import React from "react";
 
-export const HomePage: React.FC = () => {
+export type HomePageProps = {};
+
+export const HomePage: React.FC<HomePageProps> = (props) => {
   return <div>HomePage</div>;
 };

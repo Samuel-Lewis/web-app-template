@@ -1,18 +1,15 @@
 import "./App.css";
 import React from "react";
+import { Link, Outlet } from "react-router-dom";
 import {
-    Link,
-    Outlet
-} from "react-router-dom";
-import {
-    AppShell,
-    Button,
-    Center,
-    Group,
-    Header,
-    MantineProvider,
-    Paper,
-    Text as T
+  AppShell,
+  Button,
+  Center,
+  Group,
+  Header,
+  MantineProvider,
+  Paper,
+  Text as T,
 } from "@mantine/core";
 import { withLocation } from "./analytics";
 import { WithTheme } from "./theme";
