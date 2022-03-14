@@ -1,24 +1,45 @@
 import React from "react";
-import { FiXCircle } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { Alert, Button } from "@mantine/core";
+import { Button, createStyles, Group, Text, Title } from "@mantine/core";
 
 export type ErrorPageProps = {
   title?: string;
   message?: string;
 };
 
+const useStyles = createStyles((theme) => ({
+  label: {
+    fontWeight: 900,
+    fontSize: 220,
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.dark[4]
+        : theme.colors.gray[2],
+
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: 120,
+    },
+  },
+}));
+
 export const ErrorPage: React.FC<ErrorPageProps> = ({ title, message }) => {
-  const displayTitle = title || "404 - Page not found";
+  const displayTitle = title || "Page not found";
   const displayMessage =
-    message || "Sorry, we can't find the page you were looking for";
+    message ||
+    "Sorry, we can't find the page you were looking for. This page may no longer exist, or has moved to a different URL.";
+
+  const { classes } = useStyles();
 
   return (
-    <Alert icon={<FiXCircle size={16} />} title={displayTitle} color="red">
-      {displayMessage}
+    <Group position="center" direction="column">
+      <Title className={classes.label}>404</Title>
+      <Title>{displayTitle}</Title>
+      <Text color="dimmed" size="lg" align="center">
+        {displayMessage}
+      </Text>
       <Button component={Link} to="/" variant="subtle">
-        Home
+        Back to home page
       </Button>
-    </Alert>
+    </Group>
   );
 };

@@ -1,87 +1,54 @@
-import "./App.css";
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import {
-  AppShell,
-  Button,
-  Center,
-  Group,
-  Header,
-  MantineProvider,
-  Paper,
-  Text as T,
-} from "@mantine/core";
+import { AppShell, MantineProvider, Paper, Text as T } from "@mantine/core";
+import { GlobalFooter, GlobalHeader, GlobalTheme } from "./components";
+
+import type { Link as LinkType } from "./types";
 import { withLocation } from "./analytics";
-import { WithTheme } from "./theme";
 
-const App: React.FC = () => {
+export type AppProps = {
+  links: LinkType[];
+};
+
+const App: React.FC<AppProps> = ({ links }) => {
   return (
-    <WithTheme
-      render={(_, ThemeToggle) => (
-        <>
-          <AppShell
-            padding="md"
-            styles={(theme) => ({
-              root: {
-                backgroundImage: `url(${process.env.PUBLIC_URL}/assets/bright-squares.png)`,
-                height: "100%",
-                minHeight: "100vh",
-              },
-            })}
-            header={
-              <MantineProvider theme={{ colorScheme: "dark" }}>
-                <Header height={60} padding="xs">
-                  <Group position="apart">
-                    {/* Navigation Items */}
-                    <Group spacing="xs">
-                      {/* Logo */}
-
-                      <T
-                        variant="gradient"
-                        size="xl"
-                        weight={700}
-                        gradient={{ from: "indigo", to: "cyan", deg: 45 }}
-                        component={Link}
-                        to="/"
-                      >
-                        Web App Template!
-                      </T>
-                      <Button component={Link} to="/" variant="subtle">
-                        Home
-                      </Button>
-                      <Button component={Link} to="/about" variant="subtle">
-                        About
-                      </Button>
-                    </Group>
-
-                    {/* Theme toggle */}
-                    {ThemeToggle}
-                  </Group>
-                </Header>
-              </MantineProvider>
-            }
-          >
-            <Paper padding="xl">
-              <Outlet />
-            </Paper>
-            <Center style={{ height: "60px" }}>
-              <T>
-                Created by{" "}
+    <GlobalTheme>
+      <AppShell
+        padding="md"
+        styles={() => ({
+          root: {
+            backgroundImage: `url(${process.env.PUBLIC_URL}/assets/bright-squares.png)`,
+            height: "100%",
+            minHeight: "100vh",
+          },
+        })}
+        header={
+          <MantineProvider theme={{ colorScheme: "dark" }}>
+            <GlobalHeader
+              title="TODO: title"
+              logo={
                 <T
-                  component="a"
-                  variant="link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://samuel-lewis.com"
+                  variant="gradient"
+                  size="xl"
+                  weight={700}
+                  gradient={{ from: "indigo", to: "cyan", deg: 45 }}
+                  component={Link}
+                  to="/"
                 >
-                  Samuel Lewis
+                  Web App Template
                 </T>
-              </T>
-            </Center>
-          </AppShell>
-        </>
-      )}
-    />
+              }
+              links={links}
+            />
+          </MantineProvider>
+        }
+      >
+        <Paper px="xl" style={{ padding: "20px" }}>
+          <Outlet />
+        </Paper>
+        <GlobalFooter />
+      </AppShell>
+    </GlobalTheme>
   );
 };
 
