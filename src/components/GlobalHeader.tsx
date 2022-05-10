@@ -1,9 +1,9 @@
-import React from "react";
-import { Header, Group, Button } from "@mantine/core";
-import type { Link as LinkType } from "../types";
-import { Link, matchPath, useLocation } from "react-router-dom";
-import { DarkModeSwitch } from "./GlobalTheme";
+import React from 'react';
+import { Link, matchPath, useLocation } from 'react-router-dom';
+import { Button, Group, Header } from '@mantine/core';
+import { DarkModeSwitch } from './GlobalTheme';
 
+import type { Link as LinkType } from "../types";
 export type GlobalHeaderProps = {
   links: LinkType[];
   logo: React.ReactNode;
@@ -36,7 +36,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     ));
 
   return (
-    <Header height={60} px="xs">
+    <Header height={60} px="xs" fixed>
       <Group
         position="apart"
         style={{

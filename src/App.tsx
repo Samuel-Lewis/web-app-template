@@ -1,11 +1,10 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
-import { AppShell, MantineProvider, Paper, Text as T } from "@mantine/core";
-import { GlobalFooter, GlobalHeader, GlobalTheme } from "./components";
+import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import { AppShell, MantineProvider, Paper, Text as T } from '@mantine/core';
+import { withLocation } from './analytics';
+import { GlobalFooter, GlobalHeader, GlobalTheme } from './components';
 
 import type { Link as LinkType } from "./types";
-import { withLocation } from "./analytics";
-
 export type AppProps = {
   links: LinkType[];
 };
@@ -42,11 +41,11 @@ const App: React.FC<AppProps> = ({ links }) => {
             />
           </MantineProvider>
         }
+        footer={<GlobalFooter />}
       >
-        <Paper px="xl" style={{ padding: "20px" }}>
+        <Paper p="xl" sx={{ marginBottom: "60px", marginTop: "60px" }}>
           <Outlet />
         </Paper>
-        <GlobalFooter />
       </AppShell>
     </GlobalTheme>
   );

@@ -1,14 +1,9 @@
-import React from "react";
+import React from 'react';
+import { FiMoon, FiSun } from 'react-icons/fi';
 import {
-  useMantineColorScheme,
-  ActionIcon,
-  Tooltip,
-  ColorScheme,
-  MantineProvider,
-  ColorSchemeProvider,
-} from "@mantine/core";
-import { FiMoon, FiSun } from "react-icons/fi";
-import { useColorScheme, useLocalStorageValue } from "@mantine/hooks";
+  ActionIcon, ColorScheme, ColorSchemeProvider, MantineProvider, Tooltip, useMantineColorScheme
+} from '@mantine/core';
+import { useColorScheme, useLocalStorageValue } from '@mantine/hooks';
 
 export const DarkModeSwitch: React.FC = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -24,7 +19,11 @@ export const DarkModeSwitch: React.FC = () => {
   );
 };
 
-export const GlobalTheme: React.FC = ({ children }) => {
+export type GlobalThemeProps = {
+  children?: React.ReactNode;
+};
+
+export const GlobalTheme: React.FC<GlobalThemeProps> = ({ children }) => {
   const preferredColorScheme = useColorScheme();
   const [colorScheme, setColorScheme] = useLocalStorageValue<ColorScheme>({
     key: "mantine-color-scheme",
