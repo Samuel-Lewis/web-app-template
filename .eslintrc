@@ -75,14 +75,10 @@
           "sibling",
           "index"
         ],
-        "newlines-between": "always",
+        "newlines-between": "never",
         "pathGroupsExcludedImportTypes": ["builtin"],
         "pathGroups": [
-          {
-            "pattern": "@*/**",
-            "group": "external",
-            "position": "after"
-          }
+          { "pattern": "@*/**", "group": "external", "position": "after" }
         ]
       }
     ],

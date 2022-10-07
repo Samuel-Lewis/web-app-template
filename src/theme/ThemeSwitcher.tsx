@@ -1,6 +1,5 @@
 import React from 'react';
 import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5';
-
 import { getModKey } from '@/utils/os';
 import {
   ActionIcon,
