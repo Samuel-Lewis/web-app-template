@@ -1,9 +1,0 @@
-{
-  "short_name": "web-app-template",
-  "name": "web-app-template",
-  "icons": [],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}
