@@ -12,7 +12,8 @@
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "eslint-config-prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -36,6 +37,10 @@
     },
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {},
+      "typescript": {}
     }
   },
   "rules": {
@@ -48,12 +53,7 @@
         "ignoreRestSiblings": true
       }
     ],
-    "import/dynamic-import-chunkname": [
-      2,
-      {
-        "webpackChunknameFormat": "[a-zA-Z0-57-9-/_]+"
-      }
-    ],
+    "import/no-unresolved": "error",
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-anonymous-default-export": "error",

@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { MantineProvider } from '@mantine/core';
+import {
+  ColorScheme,
+  ColorSchemeProvider,
+  MantineProvider,
+} from '@mantine/core';
+import { useColorScheme, useLocalStorage } from '@mantine/hooks';
 
 import { theme } from './theme';
 
@@ -9,9 +14,28 @@ export interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+  const preferredColorScheme = useColorScheme();
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'mantine-color-scheme',
+    defaultValue: preferredColorScheme,
+    getInitialValueInEffect: true,
+  });
+
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+
   return (
-    <MantineProvider theme={theme} withGlobalStyles withNormalizeCSS>
-      {children}
-    </MantineProvider>
+    <ColorSchemeProvider
+      colorScheme={colorScheme}
+      toggleColorScheme={toggleColorScheme}
+    >
+      <MantineProvider
+        theme={{ ...theme, colorScheme }}
+        withGlobalStyles
+        withNormalizeCSS
+      >
+        {children}
+      </MantineProvider>
+    </ColorSchemeProvider>
   );
 };
