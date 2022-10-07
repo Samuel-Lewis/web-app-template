@@ -1,12 +1,10 @@
 import React from 'react';
-
 import {
   ColorScheme,
   ColorSchemeProvider,
   MantineProvider,
 } from '@mantine/core';
 import { useColorScheme, useLocalStorage } from '@mantine/hooks';
-
 import { theme } from './theme';
 
 export interface ThemeProviderProps {

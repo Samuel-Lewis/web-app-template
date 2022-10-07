@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { AppShell, Group, Header, Title } from '@mantine/core';
-
 import { ThemeProvider, ThemeSwitcher } from './theme';
 
 export const App: React.FC = () => {
