@@ -4,6 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://samuel-lewis.com/web-app-template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Samuel-Lewis/web-app-template.git"
+  },
   "contributors": [
     "Samuel Lewis"
   ],
